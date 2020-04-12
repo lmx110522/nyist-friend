@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/main",
+    "pages/find/main",
+    "pages/detail/main",
+    "pages/msg/main",
+    "pages/user/main",
+    "pages/ft/main",
+    "pages/record/main"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#37d6b1",
+    "navigationBarTitleText": "南工交友网",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "backgroundColor": "#fafafa",
+    "selectedColor": "#333",
+    "borderStyle": "white",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/main",
+        "iconPath": "static/tabs/index.png",
+        "selectedIconPath": "static/tabs/index-active.png"
+      },
+      {
+        "text": "动态",
+        "pagePath": "pages/find/main",
+        "iconPath": "static/tabs/find.png",
+        "selectedIconPath": "static/tabs/find-active.png"
+      },
+      {
+        "text": "消息",
+        "pagePath": "pages/msg/main",
+        "iconPath": "static/tabs/msg.png",
+        "selectedIconPath": "static/tabs/msg-active.png"
+      },
+      {
+        "text": "我",
+        "pagePath": "pages/user/main",
+        "iconPath": "static/tabs/user.png",
+        "selectedIconPath": "static/tabs/user-active.png"
+      }
+    ],
+    "position": "bottom"
+  }
+}

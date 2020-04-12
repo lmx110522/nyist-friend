@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "我",
+  "usingComponents": {
+    "van-card": "/static/vant/card/index",
+    "van-divider": "/static/vant/divider/index",
+    "van-index-anchor": "/static/vant/index-anchor/index",
+    "van-cell": "/static/vant/cell/index",
+    "van-button": "/static/vant/button/index",
+    "van-grid": "/static/vant/grid/index",
+    "van-grid-item": "/static/vant/grid-item/index",
+    "van-panel": "/static/vant/panel/index"
+  }
+}
