@@ -1,10 +1,11 @@
 {
   "pages": [
     "pages/index/main",
+    "pages/user/main",
+    "pages/work/main",
     "pages/find/main",
     "pages/detail/main",
     "pages/msg/main",
-    "pages/user/main",
     "pages/ft/main",
     "pages/record/main"
   ],

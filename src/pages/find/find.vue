@@ -1,5 +1,9 @@
 <template>
   <div>
+    <skeleton selector="skeleton"
+              loading="spin"
+              bgcolor="#FFF"
+              v-if="showSkeleton"></skeleton>
     <van-search
       shape="round"
       background="#37d6b1"
@@ -288,7 +292,7 @@
 
 <style>
   page {
-    background-color: #F7F7F7;
+
   }
 
   .tz_one {

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "记录中心",
+  "navigationBarTitleText": "主页中心",
   "usingComponents": {
     "van-sidebar": "/static/vant/sidebar/index",
     "van-sidebar-item": "/static/vant/sidebar-item/index",
@@ -20,6 +20,7 @@
     "van-col": "/static/vant/col/index",
     "van-row": "/static/vant/row/index",
     "van-switch": "/static/vant/switch/index",
-    "van-icon": "/static/vant/icon/index"
+    "van-icon": "/static/vant/icon/index",
+    "van-toast": "/static/vant/toast/index"
   }
 }

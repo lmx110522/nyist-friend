@@ -2,30 +2,22 @@
   <div class="msg_area">
     <van-dialog  id="van-dialog" />
     <van-tabs active="a" sticky swipeable color="#37d6b1">
-      <van-tab  info="5" title="@我" name="a">
+      <van-tab  info="1" title="@我" name="a">
         <div class="msg_list">
           <van-swipe-cell class="swipe-cell" right-width="65" async-close @close="closeMsg">
             <van-cell-group>
               <view @tap="toDetail()">
                 <div class="tz_one">
-                  <img src="http://qiniuyun.donghao.club/6.jpg">
+                  <img src="http://qiniuyun.donghao.club/4.jpg">
                   <div class="tz_content">
                     <van-row>
-                      <van-col span="10"><h3 class="user_name base_word">李沫熙</h3></van-col>
+                      <van-col span="10"><h3 class="user_name base_word">杨宁宁</h3></van-col>
                       <van-col class="tz_tag" span="14">
 
                       </van-col>
                     </van-row>
                     <p class="base_word">
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
+                      这个商品正好你需要@李沫熙
                     </p>
                   </div>
                 </div>
@@ -52,15 +44,7 @@
                       </van-col>
                     </van-row>
                     <p class="base_word">
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
+                      写的真好，我觉着真不错
                     </p>
                   </div>
                 </div>
@@ -78,7 +62,7 @@
             <van-cell-group>
               <view @tap="toDetail()">
                 <div class="tz_one">
-                  <img src="http://qiniuyun.donghao.club/6.jpg">
+                  <img src="http://qiniuyun.donghao.club/2.jpg">
                   <div class="tz_content">
                     <van-row>
                       <van-col span="10"><h3 class="user_name base_word">李沫熙</h3></van-col>
@@ -87,15 +71,7 @@
                       </van-col>
                     </van-row>
                     <p class="base_word">
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
-                      这个商品正好你需要@张三三
+                     2020-02-12 07:22:02 刚刚点赞了你
                     </p>
                   </div>
                 </div>

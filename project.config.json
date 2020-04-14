@@ -21,7 +21,7 @@
 	},
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
-	"appid": "你的appID",
+	"appid": "个人开发账号",
 	"projectname": "nyist-friend",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},

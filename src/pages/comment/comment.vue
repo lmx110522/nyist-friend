@@ -2,7 +2,7 @@
   <div class="comment_inner_area">
     <h2 class="top_title"><span>100</span>条评论</h2>
     <div class="comment_item">
-      <div class="tz_one"><img src="http://qiniuyun.donghao.club/6.jpg">
+      <div class="tz_one"><img @tap="toRecord" src="http://qiniuyun.donghao.club/6.jpg">
         <div class="tz_content">
           <div class="tz_tag">
             <van-icon name="like" color="#505052" size="40rpx"/>
@@ -22,7 +22,7 @@
             </span>
           </van-divider>
           <div class="comment_item">
-            <div class="tz_one small_comment"><img src="http://qiniuyun.donghao.club/6.jpg">
+            <div class="tz_one small_comment"><img @tap="toRecord" src="http://qiniuyun.donghao.club/6.jpg">
               <div class="tz_content">
                 <div class="tz_tag">
                   <van-icon name="like" size="40rpx" color="#FE2C54"/>
@@ -40,7 +40,7 @@
 
           </div>
           <div class="comment_item">
-            <div class="tz_one small_comment"><img src="http://qiniuyun.donghao.club/6.jpg">
+            <div class="tz_one small_comment"><img @tap="toRecord" src="http://qiniuyun.donghao.club/6.jpg">
               <div class="tz_content">
                 <div class="tz_tag">
                   <van-icon name="like" size="40rpx" color="#FE2C54"/>
@@ -63,7 +63,7 @@
 
     </div>
     <div class="comment_item">
-      <div class="tz_one"><img src="http://qiniuyun.donghao.club/6.jpg">
+      <div class="tz_one"><img @tap="toRecord" src="http://qiniuyun.donghao.club/6.jpg">
         <div class="tz_content">
           <div class="tz_tag">
             <van-icon name="like" size="40rpx" color="#FE2C54"/>
@@ -77,7 +77,7 @@
             <span class="comment_date">2019-12-12 02:22:22</span>
           </div>
           <div class="comment_item">
-            <div class="tz_one small_comment"><img src="http://qiniuyun.donghao.club/6.jpg">
+            <div class="tz_one small_comment"><img @tap="toRecord" src="http://qiniuyun.donghao.club/6.jpg">
               <div class="tz_content">
                 <div class="tz_tag">
                   <van-icon name="like" size="40rpx" color="#FE2C54"/>
@@ -95,7 +95,7 @@
 
           </div>
           <div class="comment_item">
-            <div class="tz_one small_comment"><img src="http://qiniuyun.donghao.club/6.jpg">
+            <div class="tz_one small_comment"><img @tap="toRecord" src="http://qiniuyun.donghao.club/6.jpg">
               <div class="tz_content">
                 <div class="tz_tag">
                   <van-icon name="like" size="40rpx" color="#FE2C54"/>
@@ -119,7 +119,7 @@
     </div>
 
     <div class="comment_item">
-      <div class="tz_one"><img src="http://qiniuyun.donghao.club/6.jpg">
+      <div class="tz_one"><img @tap="toRecord" src="http://qiniuyun.donghao.club/6.jpg">
         <div class="tz_content">
           <div class="tz_tag">
             <van-icon name="like" color="#505052" size="40rpx"/>
@@ -133,7 +133,7 @@
             <span class="comment_date">2019-12-12 02:22:22</span>
           </div>
           <div class="comment_item">
-            <div class="tz_one small_comment"><img src="http://qiniuyun.donghao.club/6.jpg">
+            <div class="tz_one small_comment"><img @tap="toRecord" src="http://qiniuyun.donghao.club/6.jpg">
               <div class="tz_content">
                 <div class="tz_tag">
                   <van-icon name="like" size="40rpx" color="#FE2C54"/>
@@ -151,7 +151,7 @@
 
           </div>
           <div class="comment_item">
-            <div class="tz_one small_comment"><img src="http://qiniuyun.donghao.club/6.jpg">
+            <div class="tz_one small_comment"><img @tap="toRecord" src="http://qiniuyun.donghao.club/6.jpg">
               <div class="tz_content">
                 <div class="tz_tag">
                   <van-icon name="like" size="40rpx" color="#FE2C54"/>
@@ -273,6 +273,11 @@
       finishComment(){
         this.closeCommentItem()
         Toast.success("评论成功")
+      },
+      toRecord(){
+        wx.navigateTo({
+          url: '/pages/record/main?'
+        })
       }
     }
   }

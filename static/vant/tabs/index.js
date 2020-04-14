@@ -1,6 +1,7 @@
 import { VantComponent } from '../common/component';
 import { touch } from '../mixins/touch';
 import { isDef, addUnit } from '../common/utils';
+
 VantComponent({
     mixins: [touch],
     classes: ['nav-class', 'tab-class', 'tab-active-class', 'line-class'],

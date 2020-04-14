@@ -28,6 +28,7 @@
     "van-row": "/static/vant/row/index",
     "van-col": "/static/vant/col/index",
     "van-loading": "/static/vant/loading/index",
-    "van-overlay": "/static/vant/overlay/index"
+    "van-overlay": "/static/vant/overlay/index",
+    "van-toast": "/static/vant/toast/index"
   }
 }

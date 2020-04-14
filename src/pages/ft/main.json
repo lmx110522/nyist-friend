@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "发帖",
+  "navigationBarTitleText": "开发中",
   "usingComponents": {
     "van-cell-group": "/static/vant/cell-group/index",
     "van-field": "/static/vant/field/index",

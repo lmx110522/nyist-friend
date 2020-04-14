@@ -6,11 +6,12 @@
         <van-col span="20">
           <div class="detail_top">
             <van-image
+              @tap="toRecord"
               round
               width="120rpx"
               height="120rpx"
               src="http://qiniuyun.donghao.club/6.jpg"/>
-            <span style="margin-left: 20rpx;font-weight: bold">李沫熙</span>
+            <span  @tap="toRecord"  style="margin-left: 20rpx;font-weight: bold">李沫熙</span>
           </div>
         </van-col>
         <van-col span="4">
@@ -64,7 +65,7 @@
         @click="showComment"
       />
       <van-goods-action-button
-        text="微信"
+        text="联系方式"
         custom-class="btn_class"
         color="#37d6b1"
         @click="getWeChat"/>
@@ -97,16 +98,16 @@
     },
     data() {
       return {
-        isShow: true,
+        isShow: false,
         openWechat: true
       }
     },
     methods: {
       getWeChat() {
         if (this.openWechat) {
-          Toast.success('微信号已复制');
+          Toast.success('联系方式已复制');
         } else {
-          Toast('微信号未公开，去评论区@楼主吧！');
+          Toast('联系方式未公开，去评论区@楼主吧！');
         }
       },
       showComment() {
@@ -114,6 +115,11 @@
       },
       closeComment() {
         this.isShow = !this.isShow
+      },
+      toRecord(){
+        wx.navigateTo({
+          url: '/pages/record/main?isHide=true'
+        })
       }
     }
   }

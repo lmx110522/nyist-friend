@@ -19,25 +19,25 @@
     <view>
       <view>
         <van-cell title="VIP专属操作" icon="vip-card-o"/>
-        <van-grid column-num="3">
-          <van-grid-item icon="orders-o" icon-class="vip_do" text="我的发布" link-type="navigateTo"
-                         url="/pages/record/main"/>
-          <van-grid-item icon="eye-o" icon-class="vip_do" text="浏览记录" link-type="navigateTo" url="/pages/record/main"/>
-          <van-grid-item icon="star-o" icon-class="vip_do" text="收藏记录" link-type="navigateTo" url="/pages/record/main"/>
-          <van-grid-item icon="closed-eye" icon-class="vip_do" text="我的关注" link-type="navigateTo"
-                         url="/pages/record/main"/>
-          <van-grid-item icon="friends-o" icon-class="vip_do" text="我的粉丝" link-type="navigateTo"
-                         url="/pages/record/main"/>
-          <van-grid-item icon="coupon-o" icon-class="vip_do" text="黑 名 单" link-type="navigateTo"
-                         url="/pages/record/main"/>
+        <van-grid column-num="3" clickable>
+          <van-grid-item icon="orders-o"  @click="toRecord(0)" icon-class="vip_do" text="我的发布" link-type="navigateTo"
+                         url="/pages/record/main?index=0"/>
+          <van-grid-item icon="eye-o" @click="toRecord(1)" icon-class="vip_do" text="浏览记录" link-type="navigateTo" url="/pages/record/main?index=1"/>
+          <van-grid-item icon="star-o"  @click="toRecord(2)" icon-class="vip_do" text="收藏记录" link-type="navigateTo" url="/pages/record/main?index=2"/>
+          <van-grid-item icon="closed-eye"  @click="toRecord(3)" icon-class="vip_do" text="关注列表" link-type="navigateTo"
+                         url="/pages/record/main?index=3"/>
+          <van-grid-item icon="friends-o"  @click="toRecord(4)" icon-class="vip_do" text="粉丝列表" link-type="navigateTo"
+                         url="/pages/record/main?index=4"/>
+          <van-grid-item icon="coupon-o"  @click="toRecord(5)" icon-class="vip_do" text="黑 名 单" link-type="navigateTo"
+                         url="/pages/record/main?index=5"/>
         </van-grid>
       </view>
     </view>
     <div class="user_system">
       <van-panel>
-        <van-cell title="意见反馈" is-link link-type="navigateTo" url="/pages/editor/main" icon="envelop-o"/>
-        <van-cell title="版本信息" is-link link-type="navigateTo" url="" icon="label-o"/>
-        <van-cell title="关于我们" is-link link-type="navigateTo" url="" icon="user-o"/>
+        <van-cell title="意见反馈" is-link link-type="navigateTo" url="/pages/work/main" icon="envelop-o"/>
+        <van-cell title="版本信息" is-link link-type="navigateTo" url="/pages/work/main" icon="label-o"/>
+        <van-cell title="关于我们" is-link link-type="navigateTo" url="/pages/work/main" icon="user-o"/>
       </van-panel>
     </div>
     <div class="exit_btn">
@@ -51,6 +51,7 @@
 
 <script>
   import { login, getUserInfo } from '@/utils/wechat'
+
   export default {
     name: "User",
     data() {
@@ -69,6 +70,12 @@
         this.userInfo = data.userInfo
         this.userInfo.desc = "快去找你感兴趣的南工讯息吧...."
         this.isShow = true
+      },
+      toRecord(index){
+        this.$store.dispatch('getActiveTab', {active_tab : index});
+        wx.navigateTo({
+          url: '/pages/record/main?isHide=true'
+        })
       }
     },
     mounted () {

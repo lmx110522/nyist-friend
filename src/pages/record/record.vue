@@ -1,5 +1,6 @@
 <template>
   <div class="record_area">
+    <van-toast id="van-toast"/>
     <van-notify id="van-notify"/>
     <van-dialog id="van-dialog"/>
     <div class="rad flex_row">
@@ -21,12 +22,12 @@
         </div>
       </div>
     </div>
-    <van-tabs :active="activeTab" sticky swipeable color="#37d6b1">
-      <van-tab title="作品发布">
+    <van-tabs :active="activeTab" @change="changeTab($event)" sticky animated color="#37d6b1">
+      <van-tab title="发布列表">
         <div class="msg_list">
           <div class="title_msg base_word">
             <span class="secret_tz">累计10篇帖子</span>
-            <span class="secret_tz">
+            <span class="secret_tz" v-if="!isHide">
               <span style="color: firebrick">私密帖子：</span>
               <van-switch
                 size="44rpx"
@@ -41,9 +42,9 @@
             <van-cell-group>
               <view @tap="toDetail()">
                 <div class="tz_one">
-                  <img src="http://qiniuyun.donghao.club/099071878fe58a07.jpg" @tap.stop="toUser">
+                                    <img src="http://qiniuyun.donghao.club/72d6540a555d11ea8a88acde48001122.jpg" @tap.stop="toDetail">
                   <div class="tz_content">
-                    <h3 class="user_name base_word">为什么越来越多的人讨厌学校为什么越来越多的人讨厌学校</h3>
+                    <h3 class="user_name base_word">转让二手书包</h3>
                     <p class="base_word">
                       这个商品正好你需要@张三三
                       这个商品正好你需要@张三三
@@ -83,9 +84,9 @@
             <van-cell-group>
               <view @tap="toDetail()">
                 <div class="tz_one">
-                  <img src="http://qiniuyun.donghao.club/099071878fe58a07.jpg" @tap.stop="toUser">
+                                    <img src="http://qiniuyun.donghao.club/72d6540a555d11ea8a88acde48001122.jpg" @tap.stop="toDetail">
                   <div class="tz_content">
-                    <h3 class="user_name base_word">为什么越来越多的人讨厌学校为什么越来越多的人讨厌学校</h3>
+                    <h3 class="user_name base_word">转让二手书包</h3>
                     <p class="base_word">
                       这个商品正好你需要@张三三
                       这个商品正好你需要@张三三
@@ -125,9 +126,9 @@
             <van-cell-group>
               <view @tap="toDetail()">
                 <div class="tz_one">
-                  <img src="http://qiniuyun.donghao.club/099071878fe58a07.jpg" @tap.stop="toUser">
+                                    <img src="http://qiniuyun.donghao.club/72d6540a555d11ea8a88acde48001122.jpg" @tap.stop="toDetail">
                   <div class="tz_content">
-                    <h3 class="user_name base_word">为什么越来越多的人讨厌学校为什么越来越多的人讨厌学校</h3>
+                    <h3 class="user_name base_word">转让二手书包</h3>
                     <p class="base_word">
                       这个商品正好你需要@张三三
                       这个商品正好你需要@张三三
@@ -167,9 +168,9 @@
             <van-cell-group>
               <view @tap="toDetail()">
                 <div class="tz_one">
-                  <img src="http://qiniuyun.donghao.club/099071878fe58a07.jpg" @tap.stop="toUser">
+                                    <img src="http://qiniuyun.donghao.club/72d6540a555d11ea8a88acde48001122.jpg" @tap.stop="toDetail">
                   <div class="tz_content">
-                    <h3 class="user_name base_word">为什么越来越多的人讨厌学校为什么越来越多的人讨厌学校</h3>
+                    <h3 class="user_name base_word">转让二手书包</h3>
                     <p class="base_word">
                       这个商品正好你需要@张三三
                       这个商品正好你需要@张三三
@@ -217,9 +218,9 @@
             <van-cell-group>
               <view @tap="toDetail()">
                 <div class="tz_one">
-                  <img src="http://qiniuyun.donghao.club/099071878fe58a07.jpg" @tap.stop="toUser">
+                                    <img src="http://qiniuyun.donghao.club/72d6540a555d11ea8a88acde48001122.jpg" @tap.stop="toDetail">
                   <div class="tz_content">
-                    <h3 class="user_name base_word">为什么越来越多的人讨厌学校为什么越来越多的人讨厌学校</h3>
+                    <h3 class="user_name base_word">转让二手书包</h3>
                     <p class="base_word">
                       这个商品正好你需要@张三三
                       这个商品正好你需要@张三三
@@ -265,9 +266,9 @@
             <van-cell-group>
               <view @tap="toDetail()">
                 <div class="tz_one">
-                  <img src="http://qiniuyun.donghao.club/099071878fe58a07.jpg" @tap.stop="toUser">
+                                    <img src="http://qiniuyun.donghao.club/72d6540a555d11ea8a88acde48001122.jpg" @tap.stop="toDetail">
                   <div class="tz_content">
-                    <h3 class="user_name base_word">为什么越来越多的人讨厌学校为什么越来越多的人讨厌学校</h3>
+                    <h3 class="user_name base_word">转让二手书包</h3>
                     <p class="base_word">
                       这个商品正好你需要@张三三
                       这个商品正好你需要@张三三
@@ -304,7 +305,7 @@
           </van-swipe-cell>
         </div>
       </van-tab>
-      <van-tab title="关注列表">
+      <van-tab :disabled="isHide" title="关注列表">
         <div class="title_msg base_word">
           <span class="secret_tz">关注了6位创作者</span>
         </div>
@@ -317,7 +318,7 @@
               src="http://qiniuyun.donghao.club/5.jpg"
             />
             <span class="user_name other_name">杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁</span>
-            <van-button type="danger" size="small" @tap.stop="doGrid">取消关注</van-button>
+            <van-button type="danger" size="small" @tap.stop="doGrid('确定取消关注吗')">取消关注</van-button>
           </van-grid-item>
           <van-grid-item @tap.stop="toUser" use-slot>
             <van-image
@@ -327,7 +328,7 @@
               src="http://qiniuyun.donghao.club/1.jpg"
             />
             <span class="user_name other_name">杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁</span>
-            <van-button type="danger" size="small" @tap.stop="doGrid">取消关注</van-button>
+            <van-button type="danger" size="small" @tap.stop="doGrid('确定取消关注吗')">取消关注</van-button>
           </van-grid-item>
           <van-grid-item @tap.stop="toUser" use-slot>
             <van-image
@@ -337,7 +338,7 @@
               src="http://qiniuyun.donghao.club/2.jpg"
             />
             <span class="user_name other_name">杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁</span>
-            <van-button type="danger" size="small" @tap.stop="doGrid">取消关注</van-button>
+            <van-button type="danger" size="small" @tap.stop="doGrid('确定取消关注吗')">取消关注</van-button>
           </van-grid-item>
           <van-grid-item @tap.stop="toUser" use-slot>
             <van-image
@@ -347,7 +348,7 @@
               src="http://qiniuyun.donghao.club/3.jpg"
             />
             <span class="user_name other_name">杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁</span>
-            <van-button type="danger" size="small" @tap.stop="doGrid">取消关注</van-button>
+            <van-button type="danger" size="small" @tap.stop="doGrid('确定取消关注吗')">取消关注</van-button>
           </van-grid-item>
           <van-grid-item @tap.stop="toUser" use-slot>
             <van-image
@@ -357,7 +358,7 @@
               src="http://qiniuyun.donghao.club/4.jpg"
             />
             <span class="user_name other_name">杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁</span>
-            <van-button type="danger" size="small" @tap.stop="doGrid">取消关注</van-button>
+            <van-button type="danger" size="small" @tap.stop="doGrid('确定取消关注吗')">取消关注</van-button>
           </van-grid-item>
           <van-grid-item @tap.stop="toUser" use-slot>
             <van-image
@@ -367,11 +368,11 @@
               src="http://qiniuyun.donghao.club/6.jpg"
             />
             <span class="user_name other_name">杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁</span>
-            <van-button type="danger" size="small" @tap.stop="doGrid">取消关注</van-button>
+            <van-button type="danger" size="small" @tap.stop="doGrid('确定取消关注吗')">取消关注</van-button>
           </van-grid-item>
         </van-grid>
       </van-tab>
-      <van-tab title="粉丝列表">
+      <van-tab :disabled="isHide" title="粉丝列表">
         <div class="title_msg base_word">
           <span class="secret_tz">6位铁粉关注了您</span>
         </div>
@@ -432,7 +433,7 @@
           </van-grid-item>
         </van-grid>
       </van-tab>
-      <van-tab title="黑 名 单">
+      <van-tab :disabled="isHide" title="黑 名 单">
         <div class="title_msg base_word">
           <span class="secret_tz">6位你不太喜欢的贴主</span>
         </div>
@@ -445,7 +446,7 @@
               src="http://qiniuyun.donghao.club/5.jpg"
             />
             <span class="user_name other_name">杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁</span>
-            <van-button type="primary" size="small" @tap.stop="doGrid">移除黑名单</van-button>
+            <van-button type="primary" size="small" @tap.stop="doGrid('确定移除黑名单吗')">移除黑名单</van-button>
           </van-grid-item>
           <van-grid-item @tap.stop="toUser" use-slot>
             <van-image
@@ -455,7 +456,7 @@
               src="http://qiniuyun.donghao.club/1.jpg"
             />
             <span class="user_name other_name">杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁</span>
-            <van-button type="primary" size="small" @tap.stop="doGrid">移除黑名单</van-button>
+            <van-button type="primary" size="small" @tap.stop="doGrid('确定移除黑名单吗')">移除黑名单</van-button>
           </van-grid-item>
           <van-grid-item @tap.stop="toUser" use-slot>
             <van-image
@@ -465,7 +466,7 @@
               src="http://qiniuyun.donghao.club/2.jpg"
             />
             <span class="user_name other_name">杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁</span>
-            <van-button type="primary" size="small" @tap.stop="doGrid">移除黑名单</van-button>
+            <van-button type="primary" size="small" @tap.stop="doGrid('确定移除黑名单吗')">移除黑名单</van-button>
           </van-grid-item>
           <van-grid-item @tap.stop="toUser" use-slot>
             <van-image
@@ -475,7 +476,7 @@
               src="http://qiniuyun.donghao.club/3.jpg"
             />
             <span class="user_name other_name">杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁</span>
-            <van-button type="primary" size="small" @tap.stop="doGrid">移除黑名单</van-button>
+            <van-button type="primary" size="small" @tap.stop="doGrid('确定移除黑名单吗')">移除黑名单</van-button>
           </van-grid-item>
           <van-grid-item @tap.stop="toUser" use-slot>
             <van-image
@@ -485,7 +486,7 @@
               src="http://qiniuyun.donghao.club/4.jpg"
             />
             <span class="user_name other_name">杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁</span>
-            <van-button type="primary" size="small" @tap.stop="doGrid">移除黑名单</van-button>
+            <van-button type="primary" size="small" @tap.stop="doGrid('确定移除黑名单吗')">移除黑名单</van-button>
           </van-grid-item>
           <van-grid-item @tap.stop="toUser" use-slot>
             <van-image
@@ -495,7 +496,7 @@
               src="http://qiniuyun.donghao.club/6.jpg"
             />
             <span class="user_name other_name">杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁杨宁宁</span>
-            <van-button type="primary" size="small" @tap.stop="doGrid">移除黑名单</van-button>
+            <van-button type="primary" size="small" @tap.stop="doGrid('确定移除黑名单吗')">移除黑名单</van-button>
           </van-grid-item>
         </van-grid>
       </van-tab>
@@ -507,20 +508,23 @@
 <script>
   import Dialog from '../../../static/vant/dialog/dialog'
   import Notify from '../../../static/vant/notify/notify'
+  import {mapState} from 'vuex'
+  import Toast from "../../../static/vant/toast/toast";
+
 
   export default {
     name: "Record",
     data() {
       return {
-        activeTab: 0,
-        isSecret: false
+        isSecret: false,
+        isHide: false
       }
     },
     methods: {
-      doGrid() {
+      doGrid(msg) {
         Dialog.confirm({
           title: '提醒',
-          message: '确定要取消关注吗'
+          message: msg
         }).then(() => {
           Notify({type: 'primary', message: "取消关注成功"});
           // on confirm
@@ -530,7 +534,7 @@
       },
       toUser() {
         wx.navigateTo({
-          url: '/pages/record/main'
+          url: '/pages/record/main?isHide=true'
         })
       },
       toDetail() {
@@ -538,9 +542,27 @@
           url: '/pages/detail/main'
         })
       },
-      changeSecret(){
+      changeSecret() {
         this.isSecret = !this.isSecret
+      },
+
+      changeTab(event){
+        if(event.mp.detail.index > 1 && this.isHide){
+          Toast('用户设置为私密，无权限');
+        }
       }
+    },
+    computed: {
+      // 映射状态到本组件
+      ...mapState(['activeTab'])
+    },
+    onLoad(options){
+      console.log(options.isHide)
+      console.log(options)
+      this.$data.isHide = options.isHide;
+    },
+    onHide() {
+      this.$store.dispatch('getActiveTab', {active_tab: 0});
     }
   }
 </script>
@@ -549,9 +571,11 @@
   page {
     height: 100%;
   }
-  .record_area{
-    overflow-x:hidden;
+
+  .record_area {
+    overflow-x: hidden;
   }
+
   .rad {
     background: #37d6b1;
     padding: 20rpx;
@@ -631,7 +655,7 @@
     line-height: 40rpx;
   }
 
-  .tz_one .tz_content p ,.tz_one .tz_content h3{
+  .tz_one .tz_content p, .tz_one .tz_content h3 {
     margin: 10rpx 0 0;
     font-size: 26rpx;
     line-height: 40rpx;
@@ -668,20 +692,23 @@
     margin: 10rpx 0 0 0;
   }
 
-  .tz_msg{
+  .tz_msg {
     font-size: 24rpx;
     align-items: center;
     display: flex;
     flex-direction: row;
     align-self: baseline;
   }
-  .tz_msg span{
+
+  .tz_msg span {
     margin-right: 10rpx;
   }
-  .tz_one{
+
+  .tz_one {
     border-bottom: 1px solid #E6E6E6;
   }
-  .gz{
+
+  .gz {
     position: absolute;
     top: 0rpx;
     right: 50rpx;

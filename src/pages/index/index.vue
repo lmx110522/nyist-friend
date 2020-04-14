@@ -6,15 +6,16 @@
                 loading="spin"
                 bgcolor="#FFF"
                 v-if="showSkeleton"></skeleton>
-      <!--    <van-notice-bar-->
-      <!--      mode="closeable"-->
-      <!--      text="欢迎您来到南工交友网(南阳理工)，这里有很多有意思的帖子，找对象，丢失找回都可以在这里发生，快去发帖吧"-->
-      <!--    />-->
+          <van-notice-bar
+            mode="closeable"
+            text="欢迎您来到南工交友网(南阳理工)，目前这个只是前端界面，后端逻辑交互未实现，预计年底上线后端业务"
+          />
+      <van-toast id="van-toast"/>
       <swiper class="swiper" circular @change="swiperChange($event)" indicator-dots="true" :style="{'height':Height}"
               autoplay="false" interval="5000" duration="500">
         <block v-for="(item, idx) in imgUrls" :key="idx">
           <swiper-item>
-            <image :src="item" class="swiper_img skeleton-rect" mode="widthFix" @load='imgHeight($event)'/>
+            <image @tap="toPost" :src="item" class="swiper_img skeleton-rect" mode="widthFix" @load='imgHeight($event)'/>
           </swiper-item>
         </block>
       </swiper>
@@ -26,24 +27,24 @@
               <div class="grid_topic">
                 <image
                   class="skeleton-radius"
-                  src="http://qiniuyun.donghao.club/1.jpg"/>
-                <image class="grid_logo skeleton-radius" src="http://qiniuyun.donghao.club/first.png"></image>
+                  src="http://qiniuyun.donghao.club/1.jpg" @tap="toRecord"/>
+                <image class="grid_logo skeleton-radius" src="http://qiniuyun.donghao.club/first-11.png"></image>
               </div>
             </van-grid-item>
             <van-grid-item use-slot wx:for-item="index">
               <div class="grid_topic">
                 <image
                   class="skeleton-radius"
-                  src="http://qiniuyun.donghao.club/2.jpg"/>
-                <image class="grid_logo skeleton-radius" src="http://qiniuyun.donghao.club/second.png"></image>
+                  src="http://qiniuyun.donghao.club/2.jpg"  @tap="toRecord"/>
+                <image class="grid_logo skeleton-radius" src="http://qiniuyun.donghao.club/second-2.png"></image>
               </div>
             </van-grid-item>
             <van-grid-item use-slot wx:for-item="index">
               <div class="grid_topic">
                 <image
                   class="skeleton-radius"
-                  src="http://qiniuyun.donghao.club/3.jpg"/>
-                <image class="grid_logo skeleton-radius" src="http://qiniuyun.donghao.club/third.png"></image>
+                  src="http://qiniuyun.donghao.club/3.jpg"  @tap="toRecord"/>
+                <image class="grid_logo skeleton-radius" src="http://qiniuyun.donghao.club/third-3.png"></image>
               </div>
             </van-grid-item>
           </van-grid>
@@ -55,24 +56,24 @@
               <div class="grid_topic">
                 <image
                   class="skeleton-radius"
-                  src="http://qiniuyun.donghao.club/4.jpg"/>
-                <van-button class="skeleton-rect" type="info">关注</van-button>
+                  src="http://qiniuyun.donghao.club/4.jpg"  @tap="toRecord"/>
+                <van-button class="skeleton-rect" type="info" @tap="rem">关注</van-button>
               </div>
             </van-grid-item>
             <van-grid-item use-slot wx:for-item="index">
               <div class="grid_topic">
                 <image
                   class="skeleton-radius"
-                  src="http://qiniuyun.donghao.club/5.jpg"/>
-                <van-button class="skeleton-rect" type="info">关注</van-button>
+                  src="http://qiniuyun.donghao.club/5.jpg"  @tap="toRecord"/>
+                <van-button class="skeleton-rect" type="info" @tap="rem">关注</van-button>
               </div>
             </van-grid-item>
             <van-grid-item use-slot wx:for-item="index">
               <div class="grid_topic">
                 <image
                   class="skeleton-radius"
-                  src="http://qiniuyun.donghao.club/8.jpg"/>
-                <van-button class="skeleton-rect" type="info">关注</van-button>
+                  src="http://qiniuyun.donghao.club/8.jpg"  @tap="toRecord"/>
+                <van-button class="skeleton-rect" type="info" @tap="rem">关注</van-button>
               </div>
             </van-grid-item>
           </van-grid>
@@ -195,7 +196,7 @@
           <span class="topic_all skeleton-rect">多发优质贴吧最具有活跃度<van-icon color="red" name="fire"></van-icon></span>
         </div>
         <van-grid column-num="3" :border="showBorder" clickable>
-          <van-grid-item use-slot wx:for-item="index">
+          <van-grid-item use-slot wx:for-item="index"  @tap="toRecord">
             <div class="grid_topic">
               <image
                 class="skeleton-radius"
@@ -204,7 +205,7 @@
               <span class="base_word active_user_name skeleton-rect">李沫熙</span>
             </div>
           </van-grid-item>
-          <van-grid-item use-slot wx:for-item="index">
+          <van-grid-item use-slot wx:for-item="index" @tap="toRecord">
             <div class="grid_topic">
               <image
                 class="skeleton-radius"
@@ -213,7 +214,7 @@
               <span class="base_word active_user_name skeleton-rect">李茂展李茂展李茂展李茂展李茂展李茂展李茂展李茂展</span>
             </div>
           </van-grid-item>
-          <van-grid-item use-slot wx:for-item="index">
+          <van-grid-item use-slot wx:for-item="index" @tap="toRecord">
             <div class="grid_topic">
               <image
                 class="skeleton-radius"
@@ -222,7 +223,7 @@
               <span class="base_word active_user_name skeleton-rect">活跃的小鱼儿</span>
             </div>
           </van-grid-item>
-          <van-grid-item use-slot wx:for-item="index">
+          <van-grid-item use-slot wx:for-item="index" @tap="toRecord">
             <div class="grid_topic">
               <image
                 class="skeleton-radius"
@@ -231,7 +232,7 @@
               <span class="base_word active_user_name skeleton-rect">李茂展李茂展</span>
             </div>
           </van-grid-item>
-          <van-grid-item use-slot wx:for-item="index">
+          <van-grid-item use-slot wx:for-item="index" @tap="toRecord">
             <div class="grid_topic">
               <image
                 class="skeleton-radius"
@@ -240,7 +241,7 @@
               <span class="base_word active_user_name skeleton-rect">李茂展李茂展</span>
             </div>
           </van-grid-item>
-          <van-grid-item use-slot wx:for-item="index">
+          <van-grid-item use-slot wx:for-item="index" @tap="toRecord">
             <div class="grid_topic">
               <image
                 class="skeleton-radius"
@@ -259,6 +260,8 @@
 <script>
   import skeleton from '@/components/skeleton';
   import Global from "@/utils/global";
+  import Toast from '../../../static/vant/toast/toast'
+
 
   export default {
     name: "Index",
@@ -313,7 +316,7 @@
       },
       postTz() {
         wx.navigateTo({
-          url: '/pages/ft/main'
+          url: '/pages/work/main'
         })
       },
       swiperChange(e) {
@@ -328,6 +331,19 @@
             }
           })
         }
+      },
+      toPost(){
+        wx.navigateTo({
+          url: '/pages/ft/main'
+        })
+      },
+      toRecord(){
+        wx.navigateTo({
+          url: '/pages/record/main?isHide=true'
+        })
+      },
+      rem(){
+        Toast.success('已关注');
       }
     },
     onShow() {
